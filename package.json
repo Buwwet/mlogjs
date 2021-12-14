@@ -1,13 +1,13 @@
 {
   "name": "mlogjs",
-  "version": "0.1.11",
-  "description": "Compiler that compiles Javascript to Mindustry Logic Code.",
+  "version": "1.0.0",
+  "description": "Compiler that compiles TypeScript to Mindustry Logic Code.",
   "main": "build/index.js",
   "bin": {
     "mlogjs": "./build/bin.js"
   },
   "scripts": {
-    "build": "tsc && webpack",
+    "build": "tsc",
     "start": "npm run build && npm i -g . && mlogjs"
   },
   "repository": {
@@ -22,16 +22,11 @@
   },
   "homepage": "https://github.com/weisrc/mlogjs#readme",
   "dependencies": {
-    "esprima": "^4.0.1",
+    "typescript": "^4.5.4",
     "yargs": "^17.0.1"
   },
   "devDependencies": {
-    "@types/esprima": "^4.0.2",
     "@types/node": "^15.3.0",
-    "@types/yargs": "^16.0.1",
-    "ts-loader": "^9.1.2",
-    "typescript": "^4.2.4",
-    "webpack": "^5.37.0",
-    "webpack-cli": "^4.7.0"
+    "@types/yargs": "^16.0.1"
   }
 }
