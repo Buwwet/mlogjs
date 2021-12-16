@@ -1,11 +1,12 @@
+import { ProcessorContext } from "../context";
 import { IInstruction } from "../instructions/instruction";
 
 export class InstructionReference<
   T extends IInstruction<string> = IInstruction<string>
 > {
-  constructor(public instruction: T) {}
+  constructor(public context: ProcessorContext, public instruction: T) {}
 
   lineNumber(): number {
-    return 0; // TODO
+    return this.context.instructions.indexOf(this.instruction);
   }
 }
