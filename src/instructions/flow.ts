@@ -24,8 +24,8 @@ export type TJumpData =
       b: IReadable
     ];
 
-export class JumpInstruction implements IInstruction<"end"> {
-  readonly name = "end";
+export class JumpInstruction implements IInstruction<"jump"> {
+  readonly name = "jump";
 
   constructor(public data: TJumpData, public ref: InstructionReference) {}
 
