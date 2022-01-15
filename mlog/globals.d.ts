@@ -4,6 +4,16 @@ declare namespace Constants {
   const ctrlFormation: number;
 }
 
+declare const Vars: {
+  readonly this: BasicBuilding;
+  readonly thisx: number;
+  readonly thisy: number;
+  readonly mapw: number;
+  readonly maph: number;
+  readonly links: number;
+  readonly ipt: number;
+};
+
 declare namespace Items {
   const copper: unique symbol;
   const lead: unique symbol;
