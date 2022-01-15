@@ -77,20 +77,16 @@ interface Mining {
   readonly mining: number;
 }
 
-interface Typed {
-  readonly type: symbol;
+interface Typed<T extends symbol = symbol> {
+  readonly type: T;
 }
 interface Flagged {
   readonly flag: number;
 }
 
 interface Controllable {
-  readonly controlled:
-    | 0
-    | typeof Constants.ctrlFormation
-    | typeof Constants.ctrlPlayer
-    | typeof Constants.ctrlProcessor;
-  readonly controller: Unit | Building;
+  readonly controlled: 0 | ControlKind;
+  readonly controller: BasicUnit | Building;
 }
 
 interface Nameable {

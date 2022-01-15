@@ -1,7 +1,7 @@
-declare namespace Constants {
-  const ctrlPlayer: number;
-  const ctrlProcessor: number;
-  const ctrlFormation: number;
+declare enum ControlKind {
+  ctrlPlayer,
+  ctrlProcessor,
+  ctrlFormation,
 }
 
 declare const Vars: {
