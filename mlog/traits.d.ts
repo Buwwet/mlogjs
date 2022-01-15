@@ -24,7 +24,9 @@ interface PowerHolder {
   readonly powerNetOut: number;
 }
 
-interface Turret {
+interface Shooting {
+  readonly shootX: number;
+  readonly shootY: number;
   readonly ammo: number;
   readonly ammoCapacity: number;
 }
@@ -53,11 +55,6 @@ interface WithTimescale {
 
 interface Rotatable {
   readonly rotation: number;
-}
-
-interface Shooting {
-  readonly shootX: number;
-  readonly shootY: number;
 }
 
 interface Spaced {
