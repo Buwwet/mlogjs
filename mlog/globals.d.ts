@@ -12,6 +12,7 @@ declare const Vars: {
   readonly maph: number;
   readonly links: number;
   readonly ipt: number;
+  readonly unit: AnyUnit;
 };
 
 declare namespace Items {
