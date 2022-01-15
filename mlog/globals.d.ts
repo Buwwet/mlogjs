@@ -33,22 +33,7 @@ declare namespace Items {
   const pyratite: unique symbol;
 }
 
-type Item =
-  | typeof Items.lead
-  | typeof Items.metaglass
-  | typeof Items.graphite
-  | typeof Items.sand
-  | typeof Items.coal
-  | typeof Items.titanium
-  | typeof Items.thorium
-  | typeof Items.scrap
-  | typeof Items.silicon
-  | typeof Items.plastanium
-  | typeof Items.phaseFabric
-  | typeof Items.surgeAlloy
-  | typeof Items.sporePod
-  | typeof Items.blastCompound
-  | typeof Items.pyratite;
+type Item = typeof Items[keyof typeof Items];
 
 declare namespace Liquids {
   const water: unique symbol;
@@ -57,11 +42,50 @@ declare namespace Liquids {
   const cryofluid: unique symbol;
 }
 
-type Liquid =
-  | typeof Liquids.water
-  | typeof Liquids.slag
-  | typeof Liquids.oil
-  | typeof Liquids.cryofluid;
+type Liquid = typeof Liquids[keyof typeof Liquids];
+
+declare namespace Units {
+  const dagger: unique symbol;
+  const mace: unique symbol;
+  const fortress: unique symbol;
+  const scepter: unique symbol;
+  const reign: unique symbol;
+  const nova: unique symbol;
+  const pulsar: unique symbol;
+  const quasar: unique symbol;
+  const vela: unique symbol;
+  const corvus: unique symbol;
+  const crawler: unique symbol;
+  const atrax: unique symbol;
+  const spiroct: unique symbol;
+  const arkyid: unique symbol;
+  const toxopid: unique symbol;
+  const flare: unique symbol;
+  const horizon: unique symbol;
+  const zenith: unique symbol;
+  const antumbra: unique symbol;
+  const eclipse: unique symbol;
+  const mono: unique symbol;
+  const poly: unique symbol;
+  const mega: unique symbol;
+  const quad: unique symbol;
+  const oct: unique symbol;
+  const risso: unique symbol;
+  const minke: unique symbol;
+  const bryde: unique symbol;
+  const sei: unique symbol;
+  const omura: unique symbol;
+  const retusa: unique symbol;
+  const oxynoe: unique symbol;
+  const cyerce: unique symbol;
+  const aegires: unique symbol;
+  const navanax: unique symbol;
+  const alpha: unique symbol;
+  const beta: unique symbol;
+  const gamma: unique symbol;
+}
+
+type Unit = typeof Units[keyof typeof Units];
 
 declare namespace LAccess {
   const totalItems: unique symbol;
@@ -118,10 +142,7 @@ declare namespace UnitCommands {
   const idle: unique symbol;
 }
 
-type UnitCommand =
-  | typeof UnitCommands.attack
-  | typeof UnitCommands.rally
-  | typeof UnitCommands.idle;
+type UnitCommand = typeof UnitCommands[keyof typeof UnitCommands];
 
 /**
  * Allows using special processor variables such as `@this`, `@unit` and `@time`
