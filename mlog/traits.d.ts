@@ -86,7 +86,7 @@ interface Flagged {
 
 interface Controllable {
   readonly controlled: 0 | ControlKind;
-  readonly controller: BasicUnit | Building;
+  readonly controller: BasicUnit | BasicBuilding;
 }
 
 interface Nameable {
