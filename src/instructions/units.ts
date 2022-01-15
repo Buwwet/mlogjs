@@ -20,7 +20,7 @@ export type TUnitControlInstructionData =
   | [mode: "approach", x: IReadable, y: IReadable, radius: IReadable]
   | [mode: "boost", enable: IReadable]
   | [mode: "target", x: IReadable, y: IReadable, shoot: IReadable]
-  | [mode: "targettp", unit: IReadable, shoot: IReadable]
+  | [mode: "targetp", unit: IReadable, shoot: IReadable]
   | [mode: "itemDrop", to: IReadable, amount: IReadable]
   | [mode: "itemTake", from: IReadable, item: IReadable, amount: IReadable]
   | [mode: "itemTake", from: IReadable, item: IReadable, amount: IReadable]
