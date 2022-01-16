@@ -1,3 +1,5 @@
+/// <reference path="./kinds.d.ts" />
+
 declare enum ControlKind {
   ctrlPlayer,
   ctrlProcessor,
