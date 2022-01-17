@@ -7,7 +7,12 @@ declare enum ControlKind {
 }
 
 declare const Vars: {
-  readonly this: BasicBuilding;
+  readonly this: BasicBuilding &
+    Typed<
+      | typeof Blocks.microProcessor
+      | typeof Blocks.logicProcessor
+      | typeof Blocks.hyperProcessor
+    >;
   readonly thisx: number;
   readonly thisy: number;
   readonly mapw: number;
