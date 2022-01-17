@@ -152,13 +152,6 @@ declare namespace UnitCommands {
 
 type UnitCommand = typeof UnitCommands[keyof typeof UnitCommands];
 
-/**
- * Allows using special processor variables such as `@this`, `@unit` and `@time`
- * @param name The name of the variable
- */
-
-declare function getVar<T>(key: string): T;
-
 declare namespace Blocks {
   // special "blocks" to reference stuff from the environment
   const air: unique symbol;
