@@ -27,9 +27,9 @@ interface BasicBuilding
     WithEnable,
     WithConfig {}
 
-interface AnyBuilding extends BasicBuilding, Heatable, WithProgress {}
-
 interface BasicTurret extends BasicBuilding, Shooting, WithProgress {}
 
 // just to make this future proof
 interface AnyTurret extends BasicTurret {}
+
+interface AnyBuilding extends AnyTurret, Heatable {}
