@@ -162,10 +162,10 @@ declare global {
 
   function wait(seconds: number): void;
 
-  function lookup(kind: "block", index: number): Block;
-  function lookup(kind: "unit", index: number): Unit;
-  function lookup(kind: "item", index: number): Item;
-  function lookup(kind: "liquid", index: number): Liquid;
+  function lookup(kind: "block", index: number): Block | null;
+  function lookup(kind: "unit", index: number): Unit | null;
+  function lookup(kind: "item", index: number): Item | null;
+  function lookup(kind: "liquid", index: number): Liquid | null;
 
   function unitBind(type: Unit): void;
 
