@@ -57,7 +57,6 @@ export type Operator = BinaryOperator | UnaryOperator;
 export type TOperationData =
   | [op: BinaryOperator, a: IReadable, b: IReadable]
   | [op: UnaryOperator, a: IReadable];
-// TODO: Binary operators, unary operator: some operators only take one operand like tan
 
 export class OperationInstruction implements IInstruction<"op"> {
   readonly name = "op";
@@ -65,7 +64,8 @@ export class OperationInstruction implements IInstruction<"op"> {
   constructor(public target: IWritable, public data: TOperationData) {}
 
   toMlog(): string {
-    const [op, a, b] = this.data;
+    const [, a, b] = this.data;
+    const op = getOperationName(this.data[0]);
     const base = `${this.name} ${op} ${this.target.identifier} ${a.value}`;
     if (b) {
       return `${base} ${b.value}`;
