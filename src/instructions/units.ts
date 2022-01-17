@@ -75,6 +75,11 @@ export type TRadarFilter =
   | "boss"
   | "ground";
 
+export type TRadarFilterArray =
+  | [TRadarFilter]
+  | [TRadarFilter, TRadarFilter]
+  | [TRadarFilter, TRadarFilter, TRadarFilter];
+
 export type TRadarSort =
   | "distance"
   | "health"
@@ -86,7 +91,7 @@ export class UnitRadarInstruction implements IInstruction<"uradar"> {
   readonly name = "uradar";
 
   constructor(
-    public filter: [TRadarFilter, TRadarFilter, TRadarFilter],
+    public filter: TRadarFilterArray,
     public order: IReadable,
     public sort: TRadarSort,
     public output: IWritable
@@ -99,6 +104,17 @@ export class UnitRadarInstruction implements IInstruction<"uradar"> {
   }
 }
 
+export type TUnitLocateBuildingGroup =
+  | "core"
+  | "storage"
+  | "generator"
+  | "turret"
+  | "factory"
+  | "repair"
+  | "rally"
+  | "battery"
+  | "reactor";
+
 export type TUnitLocateData =
   | [
       find: "ore",
@@ -109,16 +125,7 @@ export type TUnitLocateData =
     ]
   | [
       find: "building",
-      group:
-        | "core"
-        | "storage"
-        | "generator"
-        | "turret"
-        | "factory"
-        | "repair"
-        | "rally"
-        | "battery"
-        | "reactor",
+      group: TUnitLocateBuildingGroup,
       enemy: IReadable,
       outX: IWritable,
       outY: IWritable,
