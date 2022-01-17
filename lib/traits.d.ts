@@ -100,6 +100,6 @@ interface PayloadHolder {
 interface WithEnable {
   enabled: boolean;
 }
-interface WithConfig {
-  readonly config: symbol | null;
+interface WithConfig<T extends symbol | number | null = symbol | null> {
+  readonly config: T;
 }
