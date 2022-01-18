@@ -11,7 +11,7 @@ export class ReadInstruction implements IInstruction<"read"> {
   ) {}
 
   toMlog(): string {
-    return `${this.name} ${this.result.identifier} ${this.pos.value}`;
+    return `${this.name} ${this.result.identifier} ${this.cell.identifier} ${this.pos.value}`;
   }
 }
 
@@ -25,7 +25,7 @@ export class WriteInstruction implements IInstruction<"write"> {
   ) {}
 
   toMlog(): string {
-    return `${this.name} ${this.data.value} ${this.pos.value}`;
+    return `${this.name} ${this.data.value} ${this.cell.identifier} ${this.pos.value}`;
   }
 }
 

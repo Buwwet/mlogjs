@@ -98,7 +98,12 @@ export class UnitRadarInstruction implements IInstruction<"uradar"> {
   ) {}
 
   toMlog(): string {
-    return `${this.name} ${this.filter.join(" ")} ${this.sort} 0 ${
+    const filter = [
+      this.filter[0],
+      this.filter[1] || "any",
+      this.filter[2] || "any",
+    ];
+    return `${this.name} ${filter.join(" ")} ${this.sort} 0 ${
       this.order.value
     } ${this.output}`;
   }

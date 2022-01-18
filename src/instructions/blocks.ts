@@ -25,10 +25,10 @@ export class PrintFlushInstruction implements IInstruction<"printflush"> {
 export class GetLinkInstruction implements IInstruction<"getlink"> {
   readonly name = "getlink";
 
-  constructor(public result: IWritable, public number: IReadable) {}
+  constructor(public output: IWritable, public index: IReadable) {}
 
   toMlog(): string {
-    return `${this.name} ${this.result.identifier} ${this.number.value}`;
+    return `${this.name} ${this.output.identifier} ${this.index.value}`;
   }
 }
 
@@ -57,7 +57,12 @@ export class ControlInstruction implements IInstruction<"control"> {
 
   toMlog(): string {
     const [mode, ...values] = this.data;
-    return `${this.name} ${mode} ${values.map(({ value }) => value).join(" ")}`;
+    /// fill with default values
+    const literals = Object.assign(
+      [0, 0, 0, 0, 0],
+      values.map(({ value }) => value)
+    );
+    return `${this.name} ${mode} ${literals.join(" ")}`;
   }
 }
 
