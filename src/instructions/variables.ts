@@ -11,7 +11,7 @@ export class SetInstruction implements IInstruction<"set"> {
   }
 }
 
-export type BinaryOperator =
+export type TBinaryOperator =
   | "+"
   | "-"
   | "*"
@@ -37,7 +37,7 @@ export type BinaryOperator =
   | "angle"
   | "len"
   | "noise";
-export type UnaryOperator =
+export type TUnaryOperator =
   | "flip"
   | "abs"
   | "log"
@@ -53,10 +53,10 @@ export type UnaryOperator =
   | "acos"
   | "atan";
 
-export type Operator = BinaryOperator | UnaryOperator;
+export type TOperator = TBinaryOperator | TUnaryOperator;
 export type TOperationData =
-  | [op: BinaryOperator, a: IReadable, b: IReadable]
-  | [op: UnaryOperator, a: IReadable];
+  | [op: TBinaryOperator, a: IReadable, b: IReadable]
+  | [op: TUnaryOperator, a: IReadable];
 
 export class OperationInstruction implements IInstruction<"op"> {
   readonly name = "op";
@@ -74,7 +74,7 @@ export class OperationInstruction implements IInstruction<"op"> {
   }
 }
 
-export class WaitOperation implements IInstruction<"wait"> {
+export class WaitInstruction implements IInstruction<"wait"> {
   readonly name = "wait";
 
   constructor(public seconds: IReadable) {}
@@ -84,7 +84,7 @@ export class WaitOperation implements IInstruction<"wait"> {
   }
 }
 export type TLookupType = "block" | "unit" | "item" | "liquid";
-export class LookupOperation implements IInstruction<"lookup"> {
+export class LookupInstruction implements IInstruction<"lookup"> {
   readonly name = "lookup";
 
   constructor(
@@ -98,7 +98,7 @@ export class LookupOperation implements IInstruction<"lookup"> {
   }
 }
 
-function getOperationName(op: Operator) {
+function getOperationName(op: TOperator) {
   switch (op) {
     case "+":
       return "add";
