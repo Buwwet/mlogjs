@@ -1,12 +1,14 @@
 import { BuildContext } from "../context";
-import { IInstruction } from "../instructions/instruction";
+import { TInstruction } from "../instructions";
 
-export class InstructionReference<
-  T extends IInstruction<string> = IInstruction<string>
-> {
-  constructor(public context: BuildContext, public instruction: T) {}
+export class InstructionReference<T extends TInstruction = TInstruction> {
+  constructor(
+    public context: BuildContext,
+    public instruction: T,
+    public offset = 0
+  ) {}
 
   lineNumber(): number {
-    return this.context.instructions.indexOf(this.instruction);
+    return this.context.instructions.indexOf(this.instruction) + this.offset;
   }
 }

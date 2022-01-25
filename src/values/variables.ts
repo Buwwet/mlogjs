@@ -6,4 +6,6 @@ export class Variable implements IReadable, IWritable {
   get value() {
     return this.identifier;
   }
+
+  static readonly temporary = new Variable("_");
 }

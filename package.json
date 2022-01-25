@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Compiler that compiles TypeScript to Mindustry Logic Code.",
   "main": "build/index.js",
-  "bin": {
-    "mlogjs": "./build/bin.js"
-  },
+
   "scripts": {
     "build": "tsc",
     "start": "npm run build && npm i -g . && mlogjs"
@@ -22,6 +20,7 @@
   },
   "homepage": "https://github.com/weisrc/mlogjs#readme",
   "dependencies": {
+    "tsutils": "^3.21.0",
     "typescript": "^4.5.4",
     "yargs": "^17.0.1"
   },

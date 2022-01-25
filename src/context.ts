@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { IInstruction } from "./instructions/instruction";
+import { TInstruction } from "./instructions";
 
 export class BuildContext {
-  instructions: IInstruction<string>[];
+  instructions: TInstruction[];
   constructor(public checker: ts.TypeChecker) {}
 }
