@@ -1,105 +1,120 @@
-/// <reference path="./globals.d.ts" />
+import "./globals";
 
-type LiquidHolder = {
-  readonly [L in keyof typeof Liquids | Liquid]: number;
-} & {
-  readonly totalLiquids: number;
-  readonly liquidCapacity: number;
+type LogicSymbols = typeof Items & typeof Liquids & typeof LAccess;
+
+type WithSymbols<T extends Record<string, unknown>> = T & {
+  readonly [K in keyof (LogicSymbols | T) as LogicSymbols[K]]: T[K];
 };
 
-type ItemHolder = {
-  readonly [I in keyof typeof Items | Item]: number;
-} & {
-  readonly totalItems: number;
-  readonly firstItem: Item | null;
-  readonly itemCapacity: number;
-};
+declare global {
+  type LiquidHolder = WithSymbols<
+    {
+      readonly [L in keyof typeof Liquids]: number;
+    } & {
+      readonly totalLiquids: number;
+      readonly liquidCapacity: number;
+    }
+  >;
 
-interface PowerHolder {
-  readonly totalPower: number;
-  readonly powerCapacity: number;
-  readonly powerNetStored: number;
-  readonly powerNetCapacity: number;
-  readonly powerNetIn: number;
-  readonly powerNetOut: number;
-}
+  type ItemHolder = WithSymbols<
+    {
+      readonly [I in keyof typeof Items]: number;
+    } & {
+      readonly totalItems: number;
+      readonly firstItem: Item | null;
+      readonly itemCapacity: number;
+    }
+  >;
 
-interface Shooting {
-  readonly shootX: number;
-  readonly shootY: number;
-  readonly ammo: number;
-  readonly ammoCapacity: number;
-}
+  type PowerHolder = WithSymbols<{
+    readonly totalPower: number;
+    readonly powerCapacity: number;
+    readonly powerNetStored: number;
+    readonly powerNetCapacity: number;
+    readonly powerNetIn: number;
+    readonly powerNetOut: number;
+  }>;
 
-interface WithHealth {
-  readonly health: number;
-  readonly maxHealth: number;
-  readonly dead: boolean;
-}
+  type Shooting = WithSymbols<{
+    readonly shootX: number;
+    readonly shootY: number;
+    readonly ammo: number;
+    readonly ammoCapacity: number;
+  }>;
 
-interface Heatable {
-  readonly heat: number;
-}
+  type WithHealth = WithSymbols<{
+    readonly health: number;
+    readonly maxHealth: number;
+    readonly dead: boolean;
+  }>;
 
-interface WithEffiency {
-  readonly efficiency: number;
-}
+  type Heatable = WithSymbols<{
+    readonly heat: number;
+  }>;
 
-interface WithProgress {
-  readonly progress: number;
-}
+  type WithEffiency = WithSymbols<{
+    readonly efficiency: number;
+  }>;
 
-interface WithTimescale {
-  readonly timescale: number;
-}
+  type WithProgress = WithSymbols<{
+    readonly progress: number;
+  }>;
 
-interface Rotatable {
-  readonly rotation: number;
-}
+  type WithTimescale = WithSymbols<{
+    readonly timescale: number;
+  }>;
 
-interface Spaced {
-  readonly x: number;
-  readonly y: number;
-  readonly size: number;
-}
+  type Rotatable = WithSymbols<{
+    readonly rotation: number;
+  }>;
 
-interface Ranged {
-  readonly range: number;
-}
+  type Spaced = WithSymbols<{
+    readonly x: number;
+    readonly y: number;
+    readonly size: number;
+  }>;
 
-interface Boosted {
-  readonly boosting: number;
-}
+  type Ranged = WithSymbols<{
+    readonly range: number;
+  }>;
 
-interface Mining {
-  readonly mineX: number;
-  readonly mineY: number;
-  readonly mining: number;
-}
+  type Boosted = WithSymbols<{
+    readonly boosting: number;
+  }>;
 
-interface Typed<T extends symbol = symbol> {
-  readonly type: T;
-}
-interface Flagged {
-  readonly flag: number;
-}
+  type Mining = WithSymbols<{
+    readonly mineX: number;
+    readonly mineY: number;
+    readonly mining: number;
+  }>;
 
-interface Controllable {
-  readonly controlled: 0 | ControlKind;
-  readonly controller: BasicUnit | BasicBuilding;
-}
+  type Typed<T extends symbol = symbol> = WithSymbols<{
+    readonly type: T;
+  }>;
+  type Flagged = WithSymbols<{
+    readonly flag: number;
+  }>;
 
-interface Nameable {
-  readonly name: string | null;
-}
+  type Controllable = WithSymbols<{
+    readonly controlled: 0 | ControlKind;
+    readonly controller: BasicUnit | BasicBuilding;
+  }>;
 
-interface PayloadHolder {
-  readonly payloadCount: number;
-  readonly payloadType: symbol | null;
-}
-interface WithEnable {
-  enabled: boolean;
-}
-interface WithConfig<T extends symbol | number | null = symbol | null> {
-  readonly config: T;
+  type Nameable = WithSymbols<{
+    readonly name: string | null;
+  }>;
+
+  type PayloadHolder = WithSymbols<{
+    readonly payloadCount: number;
+    readonly payloadType: symbol | null;
+  }>;
+
+  type WithEnable = WithSymbols<{
+    enabled: boolean;
+  }>;
+
+  type WithConfig<T extends symbol | number | null = symbol | null> =
+    WithSymbols<{
+      readonly config: T;
+    }>;
 }
