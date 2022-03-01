@@ -6,7 +6,7 @@ declare enum ControlKind {
   ctrlFormation,
 }
 
-declare const Vars: {
+interface Vars {
   /** The processor currently executing this code */
   readonly this: BasicBuilding &
     Typed<
@@ -28,7 +28,9 @@ declare const Vars: {
   readonly ipt: number;
   /** The unit bound to this processor */
   readonly unit: AnyUnit;
-};
+}
+
+declare const Vars: Vars;
 
 declare namespace Items {
   const copper: unique symbol;
