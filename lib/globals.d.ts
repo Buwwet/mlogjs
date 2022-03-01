@@ -7,18 +7,26 @@ declare enum ControlKind {
 }
 
 declare const Vars: {
+  /** The processor currently executing this code */
   readonly this: BasicBuilding &
     Typed<
       | typeof Blocks.microProcessor
       | typeof Blocks.logicProcessor
       | typeof Blocks.hyperProcessor
     >;
+  /** The position on the x axis of this processor */
   readonly thisx: number;
+  /** The position on the y axis of this processor */
   readonly thisy: number;
+  /** The width of the map */
   readonly mapw: number;
+  /** The height of the map */
   readonly maph: number;
+  /** The number of blocks linked to this processor */
   readonly links: number;
+  /** The amount of instructions run per second */
   readonly ipt: number;
+  /** The unit bound to this processor */
   readonly unit: AnyUnit;
 };
 
