@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Compiler that compiles TypeScript to Mindustry Logic Code.",
   "main": "build/index.js",
-
   "scripts": {
     "build": "tsc",
     "start": "npm run build && npm i -g . && mlogjs"
@@ -27,5 +26,6 @@
   "devDependencies": {
     "@types/node": "^15.3.0",
     "@types/yargs": "^16.0.1"
-  }
+  },
+  "packageManager": "yarn@3.2.0"
 }
