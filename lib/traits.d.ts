@@ -21,7 +21,7 @@ declare global {
       readonly [I in keyof typeof Items]: number;
     } & {
       readonly totalItems: number;
-      readonly firstItem: Item | null;
+      readonly firstItem: ItemSymbol | null;
       readonly itemCapacity: number;
     }
   >;

@@ -162,12 +162,12 @@ declare global {
 
   function wait(seconds: number): void;
 
-  function lookup(kind: "block", index: number): Block | null;
-  function lookup(kind: "unit", index: number): Unit | null;
-  function lookup(kind: "item", index: number): Item | null;
-  function lookup(kind: "liquid", index: number): Liquid | null;
+  function lookup(kind: "block", index: number): BlockSymbol | null;
+  function lookup(kind: "unit", index: number): UnitSymbol | null;
+  function lookup(kind: "item", index: number): ItemSymbol | null;
+  function lookup(kind: "liquid", index: number): LiquidSymbol | null;
 
-  function unitBind(type: Unit): void;
+  function unitBind(type: UnitSymbol): void;
 
   function unitControl(mode: "idle"): void;
   function unitControl(mode: "stop"): void;
@@ -195,7 +195,7 @@ declare global {
   function unitControl(
     mode: "itemTake",
     target: BasicBuilding,
-    item: Item,
+    item: ItemSymbol,
     amount: number
   ): void;
   function unitControl(mode: "payDrop"): void;
@@ -207,7 +207,7 @@ declare global {
     mode: "build",
     x: number,
     y: number,
-    block: Block,
+    block: BlockSymbol,
     rotation: number,
     config: unknown
   ): void;
@@ -215,7 +215,7 @@ declare global {
     mode: "getBlock",
     x: number,
     y: number
-  ): [type: Block | null, building: BasicBuilding | null];
+  ): [type: BlockSymbol | null, building: BasicBuilding | null];
   function unitControl(
     mode: "within",
     x: number,
@@ -231,7 +231,7 @@ declare global {
 
   function unitLocate(
     find: "ore",
-    ore: Item
+    ore: ItemSymbol
   ): [found: false] | [found: true, x: number, y: number];
   function unitLocate<T extends BasicBuilding = AnyBuilding>(
     find: "building",

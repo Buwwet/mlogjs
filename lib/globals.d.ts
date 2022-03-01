@@ -51,7 +51,7 @@ declare namespace Items {
   const pyratite: unique symbol;
 }
 
-type Item = typeof Items[keyof typeof Items];
+type ItemSymbol = typeof Items[keyof typeof Items];
 
 declare namespace Liquids {
   const water: unique symbol;
@@ -60,7 +60,7 @@ declare namespace Liquids {
   const cryofluid: unique symbol;
 }
 
-type Liquid = typeof Liquids[keyof typeof Liquids];
+type LiquidSymbol = typeof Liquids[keyof typeof Liquids];
 
 declare namespace Units {
   const dagger: unique symbol;
@@ -103,7 +103,7 @@ declare namespace Units {
   const gamma: unique symbol;
 }
 
-type Unit = typeof Units[keyof typeof Units];
+type UnitSymbol = typeof Units[keyof typeof Units];
 
 declare namespace LAccess {
   const totalItems: unique symbol;
@@ -160,7 +160,7 @@ declare namespace UnitCommands {
   const idle: unique symbol;
 }
 
-type UnitCommand = typeof UnitCommands[keyof typeof UnitCommands];
+type UnitCommandSymbol = typeof UnitCommands[keyof typeof UnitCommands];
 
 declare namespace Blocks {
   // special "blocks" to reference stuff from the environment
@@ -325,4 +325,4 @@ declare namespace Blocks {
   const interplanetaryAccelerator: unique symbol;
 }
 
-type Block = typeof Blocks[keyof typeof Blocks];
+type BlockSymbol = typeof Blocks[keyof typeof Blocks];

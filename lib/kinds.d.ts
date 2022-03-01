@@ -6,7 +6,7 @@ interface BasicUnit
     Rotatable,
     Spaced,
     Ranged,
-    Typed<Unit>,
+    Typed<UnitSymbol>,
     Flagged,
     Controllable,
     Nameable {}
@@ -23,7 +23,7 @@ interface BasicBuilding
     Rotatable,
     Spaced,
     Ranged,
-    Typed<Block>,
+    Typed<BlockSymbol>,
     WithEnable,
     WithConfig {}
 
