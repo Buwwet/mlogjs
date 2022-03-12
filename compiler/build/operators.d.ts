@@ -1,0 +1,25 @@
+export declare const arithmeticBinaryOperators: readonly ["*", "**", "+", "-", "/", "%"];
+export declare const comparisonBinaryOperators: readonly ["!=", "!==", "<", "<=", "==", "===", ">", ">="];
+export declare const bitwiseBinaryOperators: readonly ["&", "<<", ">>", ">>>", "^", "|"];
+export declare const binaryOperators: readonly ["*", "**", "+", "-", "/", "%", "!=", "!==", "<", "<=", "==", "===", ">", ">=", "&", "<<", ">>", ">>>", "^", "|", "instanceof", "in"];
+export declare type BinaryOperator = typeof binaryOperators[number];
+export declare const logicalOperators: readonly ["&&", "??", "||"];
+export declare type LogicalOperator = typeof logicalOperators[number];
+export declare const arithmeticAssignmentOperators: readonly ["%=", "&=", "*=", "**=", "+=", "-=", "/="];
+export declare const logicalAssignmentOperators: readonly ["&&=", "||="];
+export declare const bitwiseAssignmentOperators: readonly ["<<=", ">>=", ">>>=", "^=", "|="];
+export declare const assignmentOperators: readonly ["%=", "&=", "*=", "**=", "+=", "-=", "/=", "&&=", "||=", "<<=", ">>=", ">>>=", "^=", "|=", "="];
+export declare type AssignementOperator = typeof assignmentOperators[number];
+export declare const leftRightOperators: readonly ["*", "**", "+", "-", "/", "%", "!=", "!==", "<", "<=", "==", "===", ">", ">=", "&", "<<", ">>", ">>>", "^", "|", "instanceof", "in", "&&", "??", "||", "%=", "&=", "*=", "**=", "+=", "-=", "/=", "&&=", "||=", "<<=", ">>=", ">>>=", "^=", "|=", "="];
+export declare type LeftRightOperator = typeof leftRightOperators[number];
+export declare const unaryOperators: readonly ["!", "u+", "u-", "delete", "typeof", "void", "~"];
+export declare type UnaryOperator = typeof unaryOperators[number];
+export declare const updateOperators: readonly ["++", "--"];
+export declare type UpdateOperator = typeof updateOperators[number];
+export declare const singleOperators: readonly ["!", "u+", "u-", "delete", "typeof", "void", "~", "++", "--"];
+export declare type SingleOperator = typeof singleOperators[number];
+export declare const operators: readonly ["*", "**", "+", "-", "/", "%", "!=", "!==", "<", "<=", "==", "===", ">", ">=", "&", "<<", ">>", ">>>", "^", "|", "instanceof", "in", "&&", "??", "||", "%=", "&=", "*=", "**=", "+=", "-=", "/=", "&&=", "||=", "<<=", ">>=", ">>>=", "^=", "|=", "=", "!", "u+", "u-", "delete", "typeof", "void", "~", "++", "--"];
+export declare type Operator = typeof operators[number];
+export declare const operatorMap: {
+    [k in Exclude<BinaryOperator, "instanceof" | "in"> | Extract<LogicalOperator, "&&" | "||">]: string;
+};

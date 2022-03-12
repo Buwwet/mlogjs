@@ -1,0 +1,34 @@
+import { Compiler } from "../Compiler";
+import { es, IFunctionValue, IScope, IValue, TValueInstructions } from "../types";
+import { StoreValue } from "./StoreValue";
+import { VoidValue } from "./VoidValue";
+export declare class FunctionValue extends VoidValue implements IFunctionValue {
+    constant: boolean;
+    macro: boolean;
+    private paramStores;
+    private paramNames;
+    private inst;
+    private addr;
+    private temp;
+    private ret;
+    private inline;
+    private tryingInline;
+    private body;
+    private name;
+    private c;
+    private callSize;
+    private inlineTemp;
+    private inlineEnd;
+    private bundled;
+    private createValues;
+    typeof(scope: IScope): TValueInstructions;
+    private createInst;
+    constructor(scope: IScope, name: string, paramNames: string[], paramStores: StoreValue[], body: es.BlockStatement, c: Compiler);
+    private normalReturn;
+    private normalCall;
+    private inlineReturn;
+    private inlineCall;
+    call(scope: IScope, args: IValue[]): TValueInstructions;
+    return(scope: IScope, arg: IValue): TValueInstructions<IValue | null>;
+    eval(scope: IScope): TValueInstructions;
+}
